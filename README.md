@@ -14,6 +14,24 @@ Haml extensions
 
 * `content_for` and `yield_content` (like in Rails, you know?)
 
+        // some_file.haml
+        = yield_content(:foo)
+        .content
+          = haml :another_file
+        
+        // another_file.haml
+        - content_for(:foo)
+          %b bar
+        .something
+          %h1 cool, huh?
+
+* adds `:coffee_script` tag for inline [CoffeeScript](http://jashkenas.github.com/coffee-script/)
+
+        :coffee_script
+          if happy and knows_it
+            claps_hands()
+            cha_cha_cha()
+
 SassScript extensions
 ---------------------
 
