@@ -72,7 +72,7 @@ module Haml::More::CoffeeScript
     rescue LoadError
       not_available!
     end
-    
+
     def available?
       # CoffeeScript currently not working properly on Spidermonkey
       false
@@ -106,7 +106,7 @@ module Haml::More::CoffeeScript
       @script_tag = "<script type=\"text/javascript\" src=%s></script>\n"
       super
     end
-    
+
     attr_accessor :skip_scripts, :script_tag
     def skip_scripts?
       !!@skip_scripts
@@ -115,7 +115,7 @@ module Haml::More::CoffeeScript
     def render(text)
       result = ""
       urls.each { |u| result << (script_tag % u.inspect) } unless skip_scripts?
-      result << javascript("eval(#{compile_statement(text)})")
+      result << javascript("eval(#{compile_statement(text)});")
     end
   end
 
@@ -123,6 +123,11 @@ module Haml::More::CoffeeScript
     attr_writer :compiler
     def compiler
       @compiler ||= Compiler.new
+    end
+
+    def activate
+      compiler
+      true
     end
   end
 

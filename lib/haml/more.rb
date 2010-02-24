@@ -17,7 +17,6 @@ module Haml
       end
 
       def self.included(klass)
-        Sinatra.helpers self if defined? Sinatra
         klass.extend ClassMethods
         super
       end
