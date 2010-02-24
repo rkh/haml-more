@@ -5,6 +5,9 @@ SPEC = Gem::Specification.new do |s|
   s.version          = "0.4.0.a"
   s.description      = "Adds more functionality to Haml and Sass (part of BigBand)."
 
+  # BigBand depedencies
+  s.add_dependency "monkey-lib", s.version
+
   # External dependencies
   s.add_dependency "haml", ">= 2.2.20"
   s.add_development_dependency "rspec", ">= 1.3.0"
