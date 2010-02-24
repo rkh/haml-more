@@ -34,7 +34,7 @@ module Haml::More::CoffeeScript
 
     def dependencies(prefix = nil)
       @dependencies ||= %w[rewriter lexer parser scope nodes].map { |l| "lib/#{l}.js" }
-      prefix ? @dependencies : @dependencies.map { |file| prefix / file }
+      prefix ? @dependencies.map { |file| prefix / file } : @dependencies
     end
 
     def files
