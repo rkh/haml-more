@@ -25,7 +25,7 @@ Haml extensions
         .something
           %h1 cool, huh?
 
-* adds `:coffee_script` tag for inline [CoffeeScript](http://jashkenas.github.com/coffee-script/)
+* adds `:coffee_script` for inline [CoffeeScript](http://jashkenas.github.com/coffee-script/)
 
         :coffee_script
           if happy and knows_it
