@@ -54,7 +54,7 @@ module Haml::More::CoffeeScript
     end
 
     def available?
-      !@available
+      !!@available
     end
 
     def not_available!
@@ -97,21 +97,25 @@ module Haml::More::CoffeeScript
 
     def render(text)
       sanitized = text.inspect.gsub("\\n", "\n").gsub("\\r", "\r")
-      javascript `#{command} #{coffee_directory}/bon/coffee -p -e #{sanitized}`
+      javascript `#{command} #{coffee_directory}/bin/coffee -p -e #{sanitized}`
     end
   end
 
   class ClientCompiler < Compiler
-    attr_accessor :skip_scripts
+    def initialize
+      @script_tag = "<script type=\"text/javascript\" src=%s></script>\n"
+      super
+    end
+    
+    attr_accessor :skip_scripts, :script_tag
     def skip_scripts?
       !!@skip_scripts
     end
 
     def render(text)
       result = ""
-      tag = "<script type=\"text/javascript\" src=%s></script>\n"
-      urls.each { |u| result << (tag % u.inspect) } unless skip_scripts?
-      result << javascript(compile_statement(text))
+      urls.each { |u| result << (script_tag % u.inspect) } unless skip_scripts?
+      result << javascript("eval(#{compile_statement(text)})")
     end
   end
 
