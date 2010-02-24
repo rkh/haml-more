@@ -2,11 +2,11 @@ SPEC = Gem::Specification.new do |s|
 
   # Get the facts.
   s.name             = "haml-more"
-  s.version          = "0.4.0.a"
+  s.version          = "0.4.0.c"
   s.description      = "Adds more functionality to Haml and Sass (part of BigBand)."
 
   # BigBand depedencies
-  s.add_dependency "monkey-lib", s.version
+  s.add_dependency "monkey-lib", "0.4.0.a" #s.version
 
   # External dependencies
   s.add_dependency "haml", ">= 2.2.20"

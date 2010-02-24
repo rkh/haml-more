@@ -69,7 +69,7 @@ module Haml::More::CoffeeScript
       require "johnson"
       @runtime = runtime || Johnson::Runtime.new
       prepare_runtime
-    rescue LoadError, Johnson::Error
+    rescue Exception # LoadError
       not_available!
     end
 
