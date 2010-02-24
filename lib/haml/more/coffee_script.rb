@@ -33,7 +33,7 @@ module Haml::More::CoffeeScript
     end
 
     def dependencies(prefix = nil)
-      @dependencies ||= %w[rewriter lexer parser scope nodes].map { |l| "lib/#{l}.js" }
+      @dependencies ||= %w[rewriter lexer parser scope nodes coffee-script].map { |l| "lib/#{l}.js" }
       prefix ? @dependencies.map { |file| prefix / file } : @dependencies
     end
 
@@ -50,7 +50,7 @@ module Haml::More::CoffeeScript
     end
 
     def compile_statement(text)
-      "CoffeeScript.compile(#{text.inspect}, {no_wrap: true});"
+      "CoffeeScript.compile(#{text.inspect}, {no_wrap: true})"
     end
 
     def available?
@@ -69,7 +69,7 @@ module Haml::More::CoffeeScript
       require "johnson"
       @runtime = runtime || Johnson::Runtime.new
       prepare_runtime
-    rescue LoadError
+    rescue LoadError, Johnson::Error
       not_available!
     end
 
@@ -115,7 +115,7 @@ module Haml::More::CoffeeScript
     def render(text)
       result = ""
       urls.each { |u| result << (script_tag % u.inspect) } unless skip_scripts?
-      result << javascript("eval(#{compile_statement(text)});")
+      result << javascript("eval(#{compile_statement(text)})")
     end
   end
 
