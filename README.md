@@ -27,10 +27,14 @@ Haml extensions
 
 * adds `:coffee_script` for inline [CoffeeScript](http://jashkenas.github.com/coffee-script/)
 
-        :coffee_script
-          if happy and knows_it
-            claps_hands()
-            cha_cha_cha()
+        %head
+          %title CoffeScript example
+          :coffee_script
+            if happy and knows_it
+              claps_hands()
+              cha_cha_cha()
+        %body
+          content
 
 SassScript extensions
 ---------------------
