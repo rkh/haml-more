@@ -35,7 +35,7 @@ module Haml
 
     def self.included(klass)
       Haml::More::CoffeeScript.activate
-      klass.send :include, Haml::More::ContentFor
+      klass.send :include, Haml::More::ContentFor, Haml::More::Javascript
       super
     end
 
