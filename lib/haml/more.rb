@@ -2,6 +2,14 @@ require "haml"
 require "sass/more"
 require "monkey"
 
+begin
+  require 'escape_utils/html/haml'
+rescue LoadError
+  if Monkey::Engine.mri? or Monkey::Engine.rbx?
+    warn "Please run 'gem install escape_utils' to speed up Haml!"
+  end
+end
+
 module Haml
   module More
 
