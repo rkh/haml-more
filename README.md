@@ -1,7 +1,7 @@
 Haml::More and Sass::More
 =========================
 
-Adds more functionality to Haml and Sass.
+Adds more functionality to Haml and Sass. Haml helpers detect if called from another context, so they are usable with Erb and friends.
 
 BigBand
 -------
