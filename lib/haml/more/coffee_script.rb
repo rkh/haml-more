@@ -1,5 +1,5 @@
 require "haml/more"
-require "monkey"
+require "monkey-lib"
 
 module Haml::More::CoffeeScript
   include Haml::Filters::Base

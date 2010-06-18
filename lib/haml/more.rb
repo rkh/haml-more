@@ -1,6 +1,6 @@
 require "haml"
 require "sass/more"
-require "monkey"
+require "monkey-lib"
 
 begin
   require 'escape_utils/html/haml'
