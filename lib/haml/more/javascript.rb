@@ -43,7 +43,7 @@ module Haml::More::JavaScript
       # others
       [ "chrome-frame",   "http://ajax.googleapis.com/ajax/libs/chrome-frame/%V/CFInstall.min.js"             ],
       [ :modernizr,       "http://github.com/Modernizr/Modernizr/raw/v%V/modernizr.js",               '1.1'   ],
-      [ :hyphenator,      "http://hyphenator.googlecode.com/svn/tags/Version%%20%V/Hyphenator.js",    '2.5.0' ],
+      [ :hyphenator,      "http://hyphenator.googlecode.com/svn/tags/Version%%20%V/Hyphenator.js",    '3.0.0' ],
       [ :yui3,            "http://yui.yahooapis.com/combo?%V/build/yui/yui-min.js",                   '3.1.1' ],
       [ :sizzle,          "http://github.com/jeresig/sizzle/raw/master/sizzle.js"                             ],
       [ :underscore,      "http://github.com/documentcloud/underscore/raw/%V/underscore-min.js",      '1.0.2' ],
