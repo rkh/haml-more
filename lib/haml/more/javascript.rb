@@ -1,7 +1,7 @@
 require 'haml/more'
 require 'forwardable'
 
-module Haml::More::JavaScript
+module Haml::More::Javascript
   class Pattern
     attr_accessor :pattern, :default_version
 
